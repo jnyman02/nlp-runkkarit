@@ -23,7 +23,7 @@ keywordsAll = []
 # Also prints the titles of the abstracts that matched the keyword.
 
 def task2(keywords):
-    AbstractLoader(r"E:/KOULU 2024-2025/Natural Language Processing/Labs/Lab2/Lab2_files/Abstracts.json")
+    AbstractLoader(r"./LAB_2/Lab2_files/Abstracts.json")
     for keyword in keywords:
         print(query(keyword))
 
@@ -69,8 +69,8 @@ def KeywordLoader(path):
 # Then creates an inverted file index from the keywords and the abstracts.
 # Lastly prints the inverted file index.
 def task3():
-    SeparateAbstractsLoader(r"E:/KOULU 2024-2025/Natural Language Processing/Labs/Lab2/Lab2_files/Abstracts_split")
-    KeywordLoader(r"E:/KOULU 2024-2025/Natural Language Processing/Labs/Lab2/Lab2_files/Keywords.json")
+    SeparateAbstractsLoader(r"./LAB_2/Lab2_files/Abstracts_split")
+    KeywordLoader(r"./LAB_2/Lab2_files/Keywords.json")
     invertedFileIndexer()
     printInvertedFileIndex()
 
