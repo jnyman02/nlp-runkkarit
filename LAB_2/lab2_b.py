@@ -16,10 +16,10 @@ from surprise.model_selection import GridSearchCV
 
 from collections import defaultdict
 
-recipe_data = pd.read_csv('./Lab2_files/RAW_recipes.csv',header=0,sep=",")
+recipe_data = pd.read_csv('./LAB_2/Lab2_files/RAW_recipes.csv',header=0,sep=",")
 print(recipe_data.head())
 
-user_data = pd.read_csv('./Lab2_files/PP_users.csv',header=0,sep=",")
+user_data = pd.read_csv('./LAB_2/Lab2_files/PP_users.csv',header=0,sep=",")
 print(user_data.head())
 
 def getRecipeRatings(idx):
@@ -34,7 +34,7 @@ def getRecipeRatings(idx):
 #  recipe_ratings = recipe_ratings.append(getRecipeRatings(row['u']),ignore_index=True)
 
 #recipe_ratings.to_pickle('/work/recipe_ratings.pkl')
-recipe_ratings = pd.read_pickle('./Lab2_files/recipe_ratings.pkl')
+recipe_ratings = pd.read_pickle('./LAB_2/Lab2_files/recipe_ratings.pkl')
 
 # sns.barplot(x=recipe_ratings.Rating.value_counts().index, y=recipe_ratings.Rating.value_counts())
 
@@ -49,7 +49,6 @@ recipe_ratings = recipe_ratings[recipe_ratings['Item'].isin(filtered_recipes_lis
 print(recipe_ratings.count())
 
 # sns.barplot(x=recipe_ratings.Rating.value_counts().index, y=recipe_ratings.Rating.value_counts())
-
 
 def precision_recall_at_k(predictions, k=10, threshold=3.5):
     user_est_true = defaultdict(list)
@@ -132,6 +131,7 @@ print(predictions[0])
 
 precision_10, recall_10 = precision_recall_at_k(predictions, k=10)
 map_10 = mean_average_precision_at_k(predictions, k=10)
+print("Normal Predictor")
 print(f'Precision@10: {precision_10}')
 print(f'Recall@10: {recall_10}')
 print(f'MAP@10: {map_10}')
@@ -173,6 +173,7 @@ predictions = algo.test(anti_testset_user)
 
 precision_10, recall_10 = precision_recall_at_k(predictions, k=10)
 map_10 = mean_average_precision_at_k(predictions, k=10)
+print("SVD")
 print(f'Precision@10: {precision_10}')
 print(f'Recall@10: {recall_10}')
 print(f'MAP@10: {map_10}')
@@ -197,10 +198,9 @@ print(recipe_data.loc[recipe_list])
 # pickle.dump(grid_search, open('./Lab2_files/surprise_grid_search_svd.sav', 'wb'))
 
 # load the model from disk
-grid_search = pickle.load(open('./Lab2_files/surprise_grid_search_svd.sav', 'rb'))
+grid_search = pickle.load(open('./LAB_2/Lab2_files/surprise_grid_search_svd.sav', 'rb'))
 
 print(grid_search.best_params['rmse'])
 
 algo = grid_search.best_estimator['rmse']
-
 cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
