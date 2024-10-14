@@ -1,7 +1,12 @@
 Lab2_files
-Lab 3 NLP - SJJ\cc.en.300.bin.gz
-Lab 3 NLP - SJJ\cc.en.300.bin
-Lab 3 NLP - SJJ\msr_paraphrase_corpus.txt
-Lab 3 NLP - SJJ\msr_paraphrase_corpus_sim_res.csv
-Lab 3 NLP - SJJ\msr_paraphrase_corpus_sim.csv
-Lab 3 NLP - SJJ\msr_paraphrase_corpus.csv
+Lab 3 NLP - SJJ/cc.en.300.bin.gz
+Lab 3 NLP - SJJ/cc.en.300.bin
+Lab 3 NLP - SJJ/msr_paraphrase_corpus.txt
+Lab 3 NLP - SJJ/msr_paraphrase_corpus_sim_res.csv
+Lab 3 NLP - SJJ/msr_paraphrase_corpus_sim.csv
+Lab 3 NLP - SJJ/msr_paraphrase_corpus.csv
+
+# Lab 3 data folder
+Lab 3 NLP - SJJ/data
+
+.ipynb_checkpoints
